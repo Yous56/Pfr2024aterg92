@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org" th:replace="~{base::layout(~{::section})}">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <section>
+            <h1 class="text-center">View Product Page</h1>
+            <div class="container card-sh" style="margin-top:70px; margin-bottom:100px">
+                <div class="col-md-12 p-5">
+                    <div class="row shadow-sm p-3 mb-5 bg-body-tertiary rounded">
+                        <div class="col-md-6 text-end">
+                        <img src="/img/product_img/laptop_05.png" width="330px"  height="150px" style="margin-top:295px">
+                        <!--format références : <img src="/img/product_img/laptop.jpg"    width="330px"  height="400px"> -->
+                        </div>
+
+                        <div class="col-md-6">
+                            <p class="fs-3">[[${product.title}]] </p>
+                            <p>
+                                <span class="fw-bold">Description : </span><br>[[${product.description}]] 
+                            </p>
+                            <p>
+                                <span class="fw-bold">Product Details</span><br>
+                                Status :
+                                <th:block th:if="${product.stock>0}">
+                                <span class="badge bg-success">Available</span>
+                                </th:block>
+
+                                <th:block th:unless="${product.stock>0}">
+                                    <span class="badge bg-warning">Out of stock</span>
+                                </th:block>
+                                
+                                <br>Category : [[${product.category}]]<br>Policy : 7 Days Replacement & Return
+                            </p>
+
+                            <p class="fs-5 fw-bold">
+                                Price :&nbsp; &nbsp;&nbsp;&nbsp;<i class="fas fa-dinard-sign"></i>[[${product.discountPrice}]] 
+                                <span class="fs-6 text-decoration-line-through text-secondary">[[${product.price}]] </span>
+                                <span class="fs-6 text-success">[[${product.discount}]]% off</span>
+                            </p>
+
+                            <div class="row">
+                                <div class="col-md-4 text-success text-center p-2">
+                                    <i class="fas fa-money-bill-wave fa-2x"></i>
+                                    <p>Cash On Delivery</p>
+                                </div>
+
+                                <div class="col-md-4 text-danger text-center p-2">
+                                    <i class="fas fa-undo-alt fa-2x"></i>
+                                    <p>Return Available</p>
+                                </div>
+
+                                <div class="col-md-4 text-primary text-center p-2">
+                                    <i class="fas fa-truck-moving fa-2x"></i>
+                                    <p>Free shipping</p>
+                                </div>
+                            </div>
+
+                            <th:block th:if="${product.stock>0}">
+                                <a href="/signin" class="btn btn-danger col-md-12">Add To Cart</a>
+                            </th:block>
+                            <hr>
+                            <th:block th:if="${product.stock>0}">
+                                <a href="/products" class="btn btn-primary col-md-12">Back To List of Products</a>
+                            </th:block>
+                        
+                            <th:block th:unless="${product.stock>0}">
+                                <a href="#" class="btn text-white btn-warning col-md-12">out of stock</a>
+                            </th:block>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+    </body>
+</html>

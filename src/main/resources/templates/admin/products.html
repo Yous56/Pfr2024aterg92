@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org" th:replace="~{base::layout(~{::section})}">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Insert title here</title>
+        <link rel="stylesheet" href="css/style.css">
+        <title>Insert title here</title>
+    </head>
+
+    <body>
+        
+        <section>
+            <h1 class="text-center">products admin Page</h1>
+            <h1>products admin Page</h1>
+            <div class="container-fluid mt-5 p-5">
+                        <div class="card card-sh">
+                            <div class="card-headre text-center">
+                                <p class="fs-4">View Products</p>
+                        
+                                <th:block th:if="${session.succMsg}">
+                                    <p class="text-success fw-bold">[[${session.succMsg}]]</p>
+                                  <th:block th:text="${@commonServiceImpl.removeSessionMessage()}"></th:block>
+                                  </th:block>
+      
+                                  <th:block th:if="${session.errorMsg}">
+                                    <p class="text-danger fw-bold">[[${session.errorMsg}]]</p>
+                                    <th:block th:text="${@commonServiceImpl.removeSessionMessage()}"></th:block>
+                                  </th:block>
+                            </div>
+
+                            <div class="card-body">
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th scope="col">S1 No</th>
+                                        <th scope="col">Image</th>
+                                        <th scope="col">Title</th>
+                                        <th scope="col">Description</th>
+                                        <th scope="col">Category</th>
+                                        <th scope="col">Price</th>
+                                        <th scope="col">Discount</th>
+                                        <th scope="col">Price Discount</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col">Stock</th>
+                                        <th scope="col">Action</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr th:each="p,c:${products}">
+                                            <th scope="row">[[${c.count}]]</th>
+                                            <td><img th:src="@{'/img/product_img/'+${p.image}}" width="70px" height="60px" alt=""></td>
+                                            <td>[[${p.title}]]</td>
+                                            <td>[[${p.description}]]</td>
+                                            <td>[[${p.category}]]</td>
+                                            <td>[[${p.price}]]</td>
+                                            <td>[[${p.discount}]]</td>
+                                            <td>[[${p.discountPrice}]]</td>
+                                            <td>[[${p.isActive}]]</td>
+                                            <td>[[${p.stock}]]</td>
+                                            <td>
+                                                <a th:href="@{'/admin/editProduct/'+${p.id}}" class="btn btn-sm btn-primary"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
+                                                <a th:href="@{'/admin/deleteProduct/'+${p.id}}" class="btn btn-sm btn-danger"><i class="fa-sharp fa-solid fa-trash">  Delete</i></a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+            </div>
+        </section>
+        
+    </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org" th:replace="~{base::layout(~{::section})}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add_Product Admin Page</title>
+
+</head>
+<body>
+    <section>
+        <div class="container p-5 mt-3">
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <div class="card card-sh">
+                        <div class="card-header text-center fs-4">Add Product</div>
+                        <div class="card-body">
+                            <form action="">
+                                <div class="mb-3">
+                                    <label>Enter description</label>
+                                    <input type="text" name="title" class="form-control">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label>Enter Title</label>
+                                    <textarea rows="3" cols="" class="form-control"></textarea>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label>Category</label>
+                                    <select name="" id="" class="form-control">
+                                        <option value="">-------Select-------</option>
+                                        <option value="">-------Electronics-------</option>
+                                        <option value="">-------Select-------</option>
+                                        <option value="">-------Select-------</option>
+                                    </select>
+                                </div>
+                                    <div class="mb-3">
+                                        <label>Enter Price</label>
+                                        <input type="text" name="title" class="form-control">
+                                    </div>
+                                    <div class="row">
+                                        <div class="mb-3 col">
+                                            <label>Enter Srock</label>
+                                            <input type="text" name="title" class="form-control">
+                                        </div>
+
+                                        <div class="mb-3 col">
+                                            <label>Upload image</label>
+                                            <input type="file" name="title" class="form-control">
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-primary col-md-12" type="">Submit</button>
+ 
+                                
+
+
+                            </form>
+                            
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    
+</body>
+</html>

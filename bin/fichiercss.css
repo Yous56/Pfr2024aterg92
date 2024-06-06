@@ -1,0 +1,16 @@
+@charset "ISO-8859-1";
+
+
+.row{
+    background-color: aqua;
+}
+.card-sh {
+    background: color #000;;
+    
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.5);
+}
+
+.cat-div {
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+
+}
